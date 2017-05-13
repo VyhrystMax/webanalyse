@@ -1,0 +1,175 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Websitebutler Webanalyse</title>
+    <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="{{ base_url() }}/css/waitMe.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href='{{ base_url() }}/css/style.css' rel='stylesheet' type='text/css'>
+    <link href='{{ base_url() }}/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='{{ base_url() }}/bootstrap/css/dashboard.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <a class="navbar-brand" href="{{ base_url() }}/">
+        <img src="{{ base_url() }}/img/logo-dark-color.png">
+    </a>
+</nav>
+<div class="container ">
+    <div class="loader"></div>
+
+    <div class="col-sm-12">
+        <form class="fill-the-pdf" action="{{ base_url() }}/" method="post">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h2 style="margin-bottom: 30px; font-weight: bold;">Webanalyse für kunden</h2>
+                <h4>Kundendaten:</h4>
+                <div class="input_wrapper{% if errors.company_name %} error{% endif %}">
+                    <input type="text" name="company_name" class="form-input" id="inputCompany" value="{% if post.company_name %}{{ post.company_name }}{% endif %}" placeholder="Firma">
+                    <div class="message">
+                        <div class="bg">Value is inccorect or empty!</div>
+                    </div>
+                </div>
+                <div class="input_wrapper{% if errors.domain %} error{% endif %}">
+                    <input type="text" name="domain" class="form-input" id="inputDomain" value="{% if post.domain %}{{ post.domain }}{% endif %}" placeholder="Internetadresse (bspw. www.websitebutler.de)">
+                    <div class="message">
+                        <div class="bg">Value is inccorect or empty!</div>
+                    </div>
+                </div>
+                <div class="input_wrapper{% if errors.city %} error{% endif %}">
+                    <input type="text" name="city" class="form-input" id="inputCity" value="{% if post.city %}{{ post.city }}{% endif %}" placeholder="Stadt">
+                    <div class="message">
+                        <div class="bg">Value is inccorect or empty!</div>
+                    </div>
+                </div>
+                <div class="input_wrapper{% if errors.street %} error{% endif %}">
+                    <input type="text" name="street" class="form-input" id="inputStreet" value="{% if post.street %}{{ post.street }}{% endif %}" placeholder="Straße Hausnummer">
+                    <div class="message">
+                        <div class="bg">Value is inccorect or empty!</div>
+                    </div>
+                </div>
+                <div class="input_wrapper{% if errors.fb_company %} error{% endif %}">
+                    <input type="text" name="fb_company" class="form-input" id="inputFbComp" value="{% if post.fb_company %}{{ post.fb_company }}{% endif %}" placeholder="Facebook URL (bspw. https://www.facebook.com/websitebutler/)">
+                    <div class="message">
+                        <div class="bg">
+                            Please, provide a correct link
+                        </div>
+                    </div>
+                </div>
+                <h4 class="clearfix">Suchbegriff (Keywords):</h4>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_1" class="form-input" id="inputKw1" value="{% if post.kw_1 %}{{ post.kw_1 }}{% endif %}" placeholder="Keyword 1 (bspw. Maler in Berlin)">
+                </div>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_2" class="form-input" id="inputKw2" value="{% if post.kw_2 %}{{ post.kw_2 }}{% endif %}" placeholder="Keyword 2 (bspw. Günstiger Maler in Berlin)">
+                </div>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_3" class="form-input" id="inputKw3" value="{% if post.kw_3 %}{{ post.kw_3 }}{% endif %}" placeholder="Keyword 3 (bspw. Wände streichen Berlin)">
+                </div>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_4" class="form-input" id="inputKw4" value="{% if post.kw_4 %}{{ post.kw_4 }}{% endif %}" placeholder="Keyword 4">
+                </div>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_5" class="form-input" id="inputKw5" value="{% if post.kw_5 %}{{ post.kw_5 }}{% endif %}" placeholder="Keyword 5">
+                </div>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_6" class="form-input" id="inputKw6" value="{% if post.kw_6 %}{{ post.kw_6 }}{% endif %}" placeholder="Keyword 6">
+                </div>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_7" class="form-input" id="inputKw7" value="{% if post.kw_7 %}{{ post.kw_7 }}{% endif %}" placeholder="Keyword 7">
+                </div>
+                <div class="input_wrapper">
+                    <input type="text" name="kw_8" class="form-input" id="inputKw8" value="{% if post.kw_8 %}{{ post.kw_8 }}{% endif %}" placeholder="Keyword 8">
+                </div>
+                <h4 class="clearfix">
+                    <span class="tal fl-l">Weitere Angaben:</span>
+                    <span class="tal fl-r">
+                        <div class="ic">
+                            <input id="checkboxPureCSS1" type="checkbox" name="activiren" value="off">
+                            <label for="checkboxPureCSS1"><span><span></span></span>Aktiviren</label>
+                        </div>
+                    </span>
+                </h4>
+                <div class="fields_wrapper inactive">
+                <div class="field">
+                    <span class="header">Design sieht aus wie:</span>
+                    <fieldset class="">
+                        <div class="ic">
+                            <input id="radioPureCSS1" type="radio" name="design" value="1" {% if post.design == 1 %}checked="checked"{% endif %}>
+                            <label for="radioPureCSS1"><span><span></span></span>Baukasten</label>
+                        </div>
+                        <div class="ic">
+                            <input id="radioPureCSS2" type="radio" name="design" value="2" {% if post.design == 2 %}checked="checked"{% endif %}>
+                            <label for="radioPureCSS2"><span><span></span></span>Standard</label>
+                        </div>
+                        <div class="ic">
+                            <input id="radioPureCSS3" type="radio" name="design" value="3" {% if post.design == 3 %}checked="checked"{% endif %}>
+                            <label for="radioPureCSS3"><span><span></span></span>Modern</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="field">
+                    <span class="header">Mobile Website / Responsive vorhanden?</span>
+                    <fieldset class="">
+                        <div class="ic">
+                            <input id="Responsive1" type="radio" name="responsive" value="1" {% if post.responsive == 1 %}checked="checked"{% endif %}>
+                            <label for="Responsive1"><span><span></span></span>Ja</label>
+                        </div>
+                        <div class="ic">
+                            <input id="Responsive2" type="radio" name="responsive" value="2" {% if post.responsive == 2 %}checked="checked"{% endif %}>
+                            <label for="Responsive2"><span><span></span></span>Nein</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="field">
+                    <span class="header">Google MyBusiness Eintrag vorhanden?</span>
+                    <fieldset class="">
+                        <div class="ic">
+                            <input id="eintrag1" type="radio" name="eintrag" value="1" {% if post.eintrag == 1 %}checked="checked"{% endif %}>
+                            <label for="eintrag1"><span><span></span></span>Ja</label>
+                        </div>
+                        <div class="ic">
+                            <input id="eintrag2" type="radio" name="eintrag" value="2" {% if post.eintrag == 2 %}checked="checked"{% endif %}>
+                            <label for="eintrag2"><span><span></span></span>Nein</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="field">
+                    <span class="header">Facebook-Seite vorhanden?</span>
+                    <fieldset class="">
+                        <div class="ic">
+                            <input id="facebook1" type="radio" name="facebook" value="1" {% if post.facebook == 1 %}checked="checked"{% endif %}>
+                            <label for="facebook1"><span><span></span></span>Ja</label>
+                        </div>
+                        <div class="ic">
+                            <input id="facebook2" type="radio" name="facebook" value="2" {% if post.facebook == 2 %}checked="checked"{% endif %}>
+                            <label for="facebook2"><span><span></span></span>Nein</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="field">
+                    <span class="header">Facebook auf Webseite verlinkt?</span>
+                    <fieldset class="">
+                        <div class="ic">
+                            <input id="verlinkung1" type="radio" name="verlinkung" value="1" {% if post.verlinkung == 1 %}checked="checked"{% endif %}.>
+                            <label for="verlinkung1"><span><span></span></span>Ja</label>
+                        </div>
+                        <div class="ic">
+                            <input id="verlinkung2" type="radio" name="verlinkung" value="2" {% if post.verlinkung == 2 %}checked="checked"{% endif %}>
+                            <label for="verlinkung2"><span><span></span></span>Nein</label>
+                        </div>
+                    </fieldset>
+                </div>
+                </div>
+                <div class="mt-50">
+                    <button type="submit" name="submit" class="fl-r">PDF Generieren</button>
+                    <button type="reset" name="reset" class="fl-l">Zurücksetzen</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="{{ base_url() }}/js/waitMe.js"></script>
+<script type="text/javascript" src="{{ base_url() }}/js/app.js"></script>
+</body>
+</html>
