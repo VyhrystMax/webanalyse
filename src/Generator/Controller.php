@@ -17,23 +17,23 @@ use Slim\Views\Twig;
  */
 abstract class Controller
 {
-	/**
-	 * @var ContainerInterface
-	 */
-	protected $ci;
+    /**
+     * @var ContainerInterface
+     */
+    protected $ci;
 
-	/**
-	 * @var Twig
-	 */
-	protected $view;
+    /**
+     * @var Twig
+     */
+    protected $view;
 
     /**
      * Controller constructor.
      * @param ContainerInterface $ci
      */
     public function __construct(ContainerInterface $ci)
-	{
-		$this->ci = $ci;
-		$this->view = $ci->get('view');
-	}
+    {
+        $this->ci = $ci;
+        $this->view = $ci->get('view');
+    }
 }

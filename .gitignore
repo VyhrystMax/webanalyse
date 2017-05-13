@@ -1,0 +1,9 @@
+cache/
+public/
+.idea/
+vendor/
+custom_class.php
+dependencies.php
+middleware.php
+routes.php
+settings.php
